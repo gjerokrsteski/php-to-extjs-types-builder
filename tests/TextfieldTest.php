@@ -32,6 +32,7 @@ class TextfieldTest extends PHPUnit_Framework_TestCase
                  ->prepare();
 
     $this->assertArrayHasKey('xtype', $data);
+	
     $this->assertEquals($data['value'], 'meine-email@web.de');
     $this->assertEquals($data['vtype'], 'alpha');
   }
