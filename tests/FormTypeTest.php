@@ -38,6 +38,7 @@ class FormTypeTest extends PHPUnit_Framework_TestCase
 
     $this->assertArrayHasKey('xtype', $data);
     $this->assertEquals($data['xtype'], 'form');
-    $this->assertNotEmpty($data['xtype']['items']);
+    $this->assertNotEmpty($data['config']['items']);
+    $this->assertInternalType('array', $data['config']['items']);
   }
 }
