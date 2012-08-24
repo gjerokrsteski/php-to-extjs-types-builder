@@ -4,6 +4,9 @@ PHP to ExtJS Types Builder
 The ExtJS-Types-Builder is a OOP-PHP-Framework and creates JSON suitable strings for the communication
 with your ExtJS-GUI. Due an fluent interface you can easily build and prepare the types.
 
+[![Build Status](https://secure.travis-ci.org/gjerokrsteski/php-to-extjs-types-builder.png?branch=master)](http://travis-ci.org/gjerokrsteski/php-to-extjs-types-builder)
+
+
 Build a textfield
 -----------------
 <code>
