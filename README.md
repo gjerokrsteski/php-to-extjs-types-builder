@@ -161,8 +161,8 @@ $columns->add('Name', 'name')
         ->add('E-Mail', 'email', true);
 
 $data = new ExtJsTypes_Data();
-$data->put(array('name' => 'Miki',  'vorname' => 'Maus',    'email' => 'miki@maus.de'))
-     ->put(array('name' => 'Olie',  'vorname' => 'Otto',    'email' => 'olie@maus.de'));
+$data->put(array('name' => 'Miki', 'email' => 'miki@maus.de'))
+     ->put(array('name' => 'Olie', 'email' => 'olie@maus.de'));
 
 $grid = new ExtJsTypes_Grid('My friends');
 $grid->setFields($fields)
@@ -182,18 +182,12 @@ Output will be:
     "title": "My friends",
     "fields": [
       "name",
-      "vorname",
       "email"
     ],
     "columns": [
       {
         "header": "Name",
         "dataIndex": "name",
-        "flex": false
-      },
-      {
-        "header": "Vorname",
-        "dataIndex": "vorname",
         "flex": false
       },
       {
@@ -205,12 +199,10 @@ Output will be:
     "data": [
       {
         "name": "Miki",
-        "vorname": "Maus",
         "email": "miki@maus.de"
       },
       {
         "name": "Olie",
-        "vorname": "Otto",
         "email": "olie@maus.de"
       }
     ]
@@ -230,8 +222,8 @@ $columns->add('Name', 'name')
         ->add('Vorname', 'vorname', true);
 
 $data = new ExtJsTypes_Data();
-$data->put(array('name' => 'Miki',  'vorname' => 'Maus'))
-     ->put(array('name' => 'Olie',  'vorname' => 'Otto'));
+$data->put(array('name' => 'Miki', 'vorname' => 'Maus'))
+     ->put(array('name' => 'Olie', 'vorname' => 'Otto'));
 
 $grid = new ExtJsTypes_Grid('My friends');
 $grid->setFields($fields)
