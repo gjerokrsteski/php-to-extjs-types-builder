@@ -1,4 +1,4 @@
-PHP to ExtJS Types Builder
+PHP ExtJS Types Builder
 ==========================
 
 The ExtJS-Types-Builder is a OOP-PHP-Framework and creates JSON suitable strings for the communication
