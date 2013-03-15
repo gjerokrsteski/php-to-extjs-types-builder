@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>PHP ExtJS Types Builder by gjerokrsteski</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>PHP ExtJS Types Builder</h1>
+        <h2>Creates JSON suitable strings for the communication with your ExtJS-GUI</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>PHP ExtJS Types Builder</h1>
+
+<p>The ExtJS-Types-Builder is a OOP-PHP-Framework and creates JSON suitable strings for the communication
+with your ExtJS-GUI. Due an fluent interface you can easily build and prepare the types.</p>
+
+<p><a href="http://travis-ci.org/gjerokrsteski/php-to-extjs-types-builder"><img src="https://secure.travis-ci.org/gjerokrsteski/php-to-extjs-types-builder.png?branch=master" alt="Build Status"></a></p>
+
+<h2>Build a textfield</h2>
+
+<div class="highlight"><pre><span class="nv">$item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtjsTypes_TextField</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'Ihre E-Mail:'</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">setValue</span><span class="p">(</span><span class="s1">'meine-email@web.de'</span><span class="p">)</span>
+             <span class="o">-&gt;</span><span class="na">setVtype</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExtjsTypes_VTypes_Email</span><span class="p">())</span>
+             <span class="o">-&gt;</span><span class="na">prepare</span><span class="p">();</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+</pre></div>
+
+<p>Output will be:</p>
+
+<pre lang="cli"><code>{
+  "xtype": "textfield",
+  "name": "email",
+  "fieldLabel": "Ihre E-Mail:",
+  "allowBlank": false,
+  "value": "meine-email@web.de",
+  "vtype": "email"
+}
+</code></pre>
+
+<h2>Build a combobox (selectbox)</h2>
+
+<div class="highlight"><pre><span class="nv">$comboBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_ComboBox</span><span class="p">(</span><span class="s1">'My friends as combo-box'</span><span class="p">);</span>
+<span class="nv">$comboBox</span><span class="o">-&gt;</span><span class="na">setDisplayField</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">setValueField</span><span class="p">(</span><span class="s1">'name-value'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde'</span><span class="p">,</span> <span class="s1">'Miki'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde'</span><span class="p">,</span> <span class="s1">'Joe'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde2'</span><span class="p">,</span> <span class="s1">'Miki'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde2'</span><span class="p">,</span> <span class="s1">'Joe'</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$comboBox</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">();</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+</pre></div>
+
+<p>Output will be:</p>
+
+<pre lang="cli"><code>{
+  "xtype": "combo",
+  "mode": "static",
+  "editable": false,
+  "triggerAction": "all",
+  "fieldLabel": "My friends as combo-box",
+  "displayField": "name",
+  "valueField": "name-value",
+  "store": [
+    [
+      "freunde",
+      "Miki"
+    ],
+    [
+      "freunde",
+      "Joe"
+    ],
+    [
+      "freunde2",
+      "Miki"
+    ],
+    [
+      "freunde2",
+      "Joe"
+    ]
+  ]
+}
+</code></pre>
+
+<h2>Build a form with textfield and combobox</h2>
+
+<div class="highlight"><pre><span class="nv">$typeForm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Form</span><span class="p">(</span>
+    <span class="s1">'Node deatails'</span><span class="p">,</span>
+    <span class="s1">'controller=extjstemplate&amp;act=gettemplates'</span>
+<span class="p">);</span>
+
+<span class="nv">$textFieldName</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_TextField</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Ihr  Name'</span><span class="p">);</span>
+<span class="nv">$textFieldEmail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_TextField</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'Ihre  E-Mail'</span><span class="p">);</span>
+
+<span class="nv">$comboBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_ComboBox</span><span class="p">(</span><span class="s1">'My friends as combo-box'</span><span class="p">);</span>
+<span class="nv">$comboBox</span><span class="o">-&gt;</span><span class="na">setDisplayField</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">setValueField</span><span class="p">(</span><span class="s1">'name-value'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde'</span><span class="p">,</span> <span class="s1">'Miki'</span><span class="p">)</span>
+         <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde'</span><span class="p">,</span> <span class="s1">'Joe'</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$typeForm</span><span class="o">-&gt;</span><span class="na">addItem</span><span class="p">(</span><span class="nv">$textFieldName</span><span class="p">)</span>
+                 <span class="o">-&gt;</span><span class="na">addItem</span><span class="p">(</span><span class="nv">$textFieldEmail</span><span class="p">)</span>
+                 <span class="o">-&gt;</span><span class="na">addItem</span><span class="p">(</span><span class="nv">$comboBox</span><span class="p">)</span>
+                 <span class="o">-&gt;</span><span class="na">prepare</span><span class="p">();</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+</pre></div>
+
+<p>Output will be:</p>
+
+<pre lang="cli"><code>{
+  "xtype": "form",
+  "config": {
+    "title": "Node deatails",
+    "url": "controller=extjstemplate&amp;act=gettemplates",
+    "items": [
+      {
+        "xtype": "textfield",
+        "name": "name",
+        "fieldLabel": "Ihr  Name",
+        "allowBlank": false
+      },
+      {
+        "xtype": "textfield",
+        "name": "email",
+        "fieldLabel": "Ihre  E-Mail",
+        "allowBlank": false
+      },
+      {
+        "xtype": "combo",
+        "mode": "static",
+        "editable": false,
+        "triggerAction": "all",
+        "fieldLabel": "My friends as combo-box",
+        "displayField": "name",
+        "valueField": "name-value",
+        "store": [
+          [
+            "freunde",
+            "Miki"
+          ],
+          [
+            "freunde",
+            "Joe"
+          ]
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+
+<h2>Build a grid</h2>
+
+<div class="highlight"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Fields</span><span class="p">();</span>
+<span class="nv">$fields</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+       <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'vorname'</span><span class="p">)</span>
+       <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'email'</span><span class="p">);</span>
+
+<span class="nv">$columns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Columns</span><span class="p">();</span>
+<span class="nv">$columns</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Name'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Vorname'</span><span class="p">,</span> <span class="s1">'vorname'</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'E-Mail'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Data</span><span class="p">();</span>
+<span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Maus'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'miki@maus.de'</span><span class="p">))</span>
+     <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Otto'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'olie@maus.de'</span><span class="p">));</span>
+
+<span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
+<span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">setFields</span><span class="p">(</span><span class="nv">$fields</span><span class="p">)</span>
+     <span class="o">-&gt;</span><span class="na">setColumns</span><span class="p">(</span><span class="nv">$columns</span><span class="p">)</span>
+     <span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">();</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+</pre></div>
+
+<p>Output will be:</p>
+
+<pre lang="cli"><code>{
+  "xtype": "gridpanel",
+  "config": {
+    "title": "My friends",
+    "fields": [
+      "name",
+      "vorname",
+      "email"
+    ],
+    "columns": [
+      {
+        "header": "Name",
+        "dataIndex": "name",
+        "flex": false
+      },
+      {
+        "header": "Vorname",
+        "dataIndex": "vorname",
+        "flex": false
+      },
+      {
+        "header": "E-Mail",
+        "dataIndex": "email",
+        "flex": true
+      }
+    ],
+    "data": [
+      {
+        "name": "Miki",
+        "vorname": "Maus",
+        "email": "miki@maus.de"
+      },
+      {
+        "name": "Olie",
+        "vorname": "Otto",
+        "email": "olie@maus.de"
+      }
+    ]
+  }
+}
+</code></pre>
+
+<h2>Build a grid with docked textfield</h2>
+
+<div class="highlight"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Fields</span><span class="p">();</span>
+<span class="nv">$fields</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+       <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'vorname'</span><span class="p">);</span>
+
+<span class="nv">$columns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Columns</span><span class="p">();</span>
+<span class="nv">$columns</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Name'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">)</span>
+        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Vorname'</span><span class="p">,</span> <span class="s1">'vorname'</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Data</span><span class="p">();</span>
+<span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span>  <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Maus'</span><span class="p">))</span>
+     <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span>  <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Otto'</span><span class="p">));</span>
+
+<span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
+<span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">setFields</span><span class="p">(</span><span class="nv">$fields</span><span class="p">)</span>
+     <span class="o">-&gt;</span><span class="na">setColumns</span><span class="p">(</span><span class="nv">$columns</span><span class="p">)</span>
+     <span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+      <span class="o">-&gt;</span><span class="na">dockItem</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">ExtJsTypes_ItemsDocker</span><span class="p">(</span>
+          <span class="k">new</span> <span class="nx">ExtJsTypes_Textfield</span><span class="p">(</span><span class="s1">'new-scale'</span><span class="p">,</span> <span class="s1">'Add Scale'</span><span class="p">)</span>
+        <span class="p">)</span>
+      <span class="p">);</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">();</span>
+
+<span class="nb">print_r</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
+</pre></div>
+
+<p>Output will be:</p>
+
+<pre lang="cli"><code>{
+  "xtype": "gridpanel",
+  "config": {
+    "title": "My friends",
+    "fields": [
+      "name",
+      "vorname"
+    ],
+    "columns": [
+      {
+        "header": "Name",
+        "dataIndex": "name",
+        "flex": false
+      },
+      {
+        "header": "Vorname",
+        "dataIndex": "vorname",
+        "flex": true
+      }
+    ],
+    "data": [
+      {
+        "name": "Miki",
+        "vorname": "Maus"
+      },
+      {
+        "name": "Olie",
+        "vorname": "Otto"
+      }
+    ],
+    "dockeditems": [
+      {
+        "xtype": "textfield",
+        "buttonLabel": "Add Scale"
+      }
+    ]
+  }
+}
+</code></pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
