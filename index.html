@@ -28,9 +28,7 @@
 
     <div class="container">
       <section id="main_content">
-        <h1>PHP ExtJS Types Builder</h1>
-
-<p>The ExtJS-Types-Builder is a OOP-PHP-Framework and creates JSON suitable strings for the communication
+        <p>The ExtJS-Types-Builder is a OOP-PHP-Framework and creates JSON suitable strings for the communication
 with your ExtJS-GUI. Due an fluent interface you can easily build and prepare the types.</p>
 
 <p><a href="http://travis-ci.org/gjerokrsteski/php-to-extjs-types-builder"><img src="https://secure.travis-ci.org/gjerokrsteski/php-to-extjs-types-builder.png?branch=master" alt="Build Status"></a></p>
@@ -185,8 +183,8 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
         <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'E-Mail'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Data</span><span class="p">();</span>
-<span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Maus'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'miki@maus.de'</span><span class="p">))</span>
-     <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Otto'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'olie@maus.de'</span><span class="p">));</span>
+<span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'miki@maus.de'</span><span class="p">))</span>
+     <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'olie@maus.de'</span><span class="p">));</span>
 
 <span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
 <span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">setFields</span><span class="p">(</span><span class="nv">$fields</span><span class="p">)</span>
@@ -206,18 +204,12 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
     "title": "My friends",
     "fields": [
       "name",
-      "vorname",
       "email"
     ],
     "columns": [
       {
         "header": "Name",
         "dataIndex": "name",
-        "flex": false
-      },
-      {
-        "header": "Vorname",
-        "dataIndex": "vorname",
         "flex": false
       },
       {
@@ -229,12 +221,10 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
     "data": [
       {
         "name": "Miki",
-        "vorname": "Maus",
         "email": "miki@maus.de"
       },
       {
         "name": "Olie",
-        "vorname": "Otto",
         "email": "olie@maus.de"
       }
     ]
@@ -253,8 +243,8 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
         <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Vorname'</span><span class="p">,</span> <span class="s1">'vorname'</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Data</span><span class="p">();</span>
-<span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span>  <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Maus'</span><span class="p">))</span>
-     <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span>  <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Otto'</span><span class="p">));</span>
+<span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Maus'</span><span class="p">))</span>
+     <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Otto'</span><span class="p">));</span>
 
 <span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
 <span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">setFields</span><span class="p">(</span><span class="nv">$fields</span><span class="p">)</span>
