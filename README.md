@@ -9,21 +9,18 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
 
 Build a textfield
 -----------------
-<code>
-<pre>
-    $item = new ExtjsTypes_TextField('email', 'Ihre E-Mail:');
+```php
+$item = new ExtjsTypes_TextField('email', 'Ihre E-Mail:');
 
-    $data = $item->setValue('meine-email@web.de')
-                 ->setVtype(new ExtjsTypes_VTypes_Email())
-                 ->prepare();
+$data = $item->setValue('meine-email@web.de')
+             ->setVtype(new ExtjsTypes_VTypes_Email())
+             ->prepare();
 
-    print_r(json_encode($data));
-</pre>
-</code>
+print_r(json_encode($data));
+```
 
 Output will be:
-<code>
-<pre>
+```cli
 {
   "xtype": "textfield",
   "name": "email",
@@ -32,30 +29,26 @@ Output will be:
   "value": "meine-email@web.de",
   "vtype": "email"
 }
-</pre>
-</code>
+```
 
 Build a combobox (selectbox)
 ----------------------------
-<code>
-<pre>
-    $comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
-    $comboBox->setDisplayField('name')
-             ->setValueField('name-value')
-             ->addData('freunde', 'Miki')
-             ->addData('freunde', 'Joe')
-             ->addData('freunde2', 'Miki')
-             ->addData('freunde2', 'Joe');
+```php
+$comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
+$comboBox->setDisplayField('name')
+         ->setValueField('name-value')
+         ->addData('freunde', 'Miki')
+         ->addData('freunde', 'Joe')
+         ->addData('freunde2', 'Miki')
+         ->addData('freunde2', 'Joe');
 
-    $data = $comboBox->prepare();
+$data = $comboBox->prepare();
 
-    print_r(json_encode($data));
-</pre>
-</code>
+print_r(json_encode($data));
+```
 
 Output will be:
-<code>
-<pre>
+```cli
 {
   "xtype": "combo",
   "mode": "static",
@@ -83,40 +76,35 @@ Output will be:
     ]
   ]
 }
-</pre>
-</code>
+```
 
 Build a form with textfield and combobox
 ----------------------------------------
-<code>
-<pre>
-   $typeForm = new ExtJsTypes_Form(
-    	'Node deatails',
-    	'controller=extjstemplate&act=gettemplates'
-    );
+```php
+$typeForm = new ExtJsTypes_Form(
+	'Node deatails',
+	'controller=extjstemplate&act=gettemplates'
+);
 
-    $textFieldName = new ExtJsTypes_TextField('name', 'Ihr  Name');
-    $textFieldEmail = new ExtJsTypes_TextField('email', 'Ihre  E-Mail');
+$textFieldName = new ExtJsTypes_TextField('name', 'Ihr  Name');
+$textFieldEmail = new ExtJsTypes_TextField('email', 'Ihre  E-Mail');
 
-    $comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
-    $comboBox->setDisplayField('name')
-             ->setValueField('name-value')
-             ->addData('freunde', 'Miki')
-             ->addData('freunde', 'Joe');
+$comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
+$comboBox->setDisplayField('name')
+         ->setValueField('name-value')
+         ->addData('freunde', 'Miki')
+         ->addData('freunde', 'Joe');
 
-    $data = $typeForm->addItem($textFieldName)
-                     ->addItem($textFieldEmail)
-                     ->addItem($comboBox)
-                     ->prepare();
+$data = $typeForm->addItem($textFieldName)
+                 ->addItem($textFieldEmail)
+                 ->addItem($comboBox)
+                 ->prepare();
 
-    print_r(json_encode($data));
-
-</pre>
-</code>
+print_r(json_encode($data));
+```
 
 Output will be:
-<code>
-<pre>
+```cli
 {
   "xtype": "form",
   "config": {
@@ -157,41 +145,37 @@ Output will be:
     ]
   }
 }
-</pre>
-</code>
+```
 
 Build a grid
 ------------
-<code>
-<pre>
-    $fields = new ExtJsTypes_Fields();
-    $fields->add('name')
-           ->add('vorname')
-           ->add('email');
+```php
+$fields = new ExtJsTypes_Fields();
+$fields->add('name')
+       ->add('vorname')
+       ->add('email');
 
-    $columns = new ExtJsTypes_Columns();
-    $columns->add('Name', 'name')
-            ->add('Vorname', 'vorname')
-            ->add('E-Mail', 'email', true);
+$columns = new ExtJsTypes_Columns();
+$columns->add('Name', 'name')
+        ->add('Vorname', 'vorname')
+        ->add('E-Mail', 'email', true);
 
-    $data = new ExtJsTypes_Data();
-    $data->put(array('name' => 'Miki',  'vorname' => 'Maus',    'email' => 'miki@maus.de'))
-         ->put(array('name' => 'Olie',  'vorname' => 'Otto',    'email' => 'olie@maus.de'));
+$data = new ExtJsTypes_Data();
+$data->put(array('name' => 'Miki',  'vorname' => 'Maus',    'email' => 'miki@maus.de'))
+     ->put(array('name' => 'Olie',  'vorname' => 'Otto',    'email' => 'olie@maus.de'));
 
-    $grid = new ExtJsTypes_Grid('My friends');
-    $grid->setFields($fields)
-         ->setColumns($columns)
-         ->setData($data);
+$grid = new ExtJsTypes_Grid('My friends');
+$grid->setFields($fields)
+     ->setColumns($columns)
+     ->setData($data);
 
-    $data = $grid->prepare();
+$data = $grid->prepare();
 
-   print_r(json_encode($data));
-</pre>
-</code>
+print_r(json_encode($data));
+```
 
 Output will be:
-<code>
-<pre>
+```cli
 {
   "xtype": "gridpanel",
   "config": {
@@ -232,44 +216,40 @@ Output will be:
     ]
   }
 }
-</pre>
-</code>
+```
 
 Build a grid with docked textfield
 ----------------------------------
-<code>
-<pre>
+```php
 $fields = new ExtJsTypes_Fields();
-    $fields->add('name')
-           ->add('vorname');
+$fields->add('name')
+       ->add('vorname');
 
-    $columns = new ExtJsTypes_Columns();
-    $columns->add('Name', 'name')
-            ->add('Vorname', 'vorname', true);
+$columns = new ExtJsTypes_Columns();
+$columns->add('Name', 'name')
+        ->add('Vorname', 'vorname', true);
 
-    $data = new ExtJsTypes_Data();
-    $data->put(array('name' => 'Miki',  'vorname' => 'Maus'))
-         ->put(array('name' => 'Olie',  'vorname' => 'Otto'));
+$data = new ExtJsTypes_Data();
+$data->put(array('name' => 'Miki',  'vorname' => 'Maus'))
+     ->put(array('name' => 'Olie',  'vorname' => 'Otto'));
 
-    $grid = new ExtJsTypes_Grid('My friends');
-    $grid->setFields($fields)
-         ->setColumns($columns)
-         ->setData($data)
-          ->dockItem(
-            new ExtJsTypes_ItemsDocker(
-              new ExtJsTypes_Textfield('new-scale', 'Add Scale')
-            )
-          );
+$grid = new ExtJsTypes_Grid('My friends');
+$grid->setFields($fields)
+     ->setColumns($columns)
+     ->setData($data)
+      ->dockItem(
+        new ExtJsTypes_ItemsDocker(
+          new ExtJsTypes_Textfield('new-scale', 'Add Scale')
+        )
+      );
 
-    $data = $grid->prepare();
+$data = $grid->prepare();
 
-    print_r(json_encode($data));
-</pre>
-</code>
+print_r(json_encode($data));
+```
 
 Output will be:
-<code>
-<pre>
+```cli
 {
   "xtype": "gridpanel",
   "config": {
@@ -308,5 +288,4 @@ Output will be:
     ]
   }
 }
-</pre>
-</code>
+```
