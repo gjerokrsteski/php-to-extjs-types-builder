@@ -3,44 +3,46 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <title>PHP ExtJS Types Builder by gjerokrsteski</title>
   </head>
 
   <body>
+    <div id="container">
+      <div class="inner">
 
-    <header>
-      <div class="container">
-        <h1>PHP ExtJS Types Builder</h1>
-        <h2>Creates JSON suitable strings for the communication with your ExtJS-GUI</h2>
+        <header>
+          <h1>PHP ExtJS Types Builder</h1>
+          <h2>Creates JSON suitable strings for the communication with your ExtJS-GUI</h2>
+        </header>
 
-        <section id="downloads">
-          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/gjerokrsteski/php-to-extjs-types-builder" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
-      </div>
-    </header>
 
-    <div class="container">
-      <section id="main_content">
-        <h1>PHP ExtJS Types Builder</h1>
+        <hr>
 
-<p>The ExtJS-Types-Builder is a OOP-PHP-Framework and creates JSON suitable strings for the communication
+        <section id="main_content">
+          <p>The ExtJS-Types-Builder is a OOP-PHP-Framework and creates JSON suitable strings for the communication
 with your ExtJS-GUI. Due an fluent interface you can easily build and prepare the types.</p>
 
 <p><a href="http://travis-ci.org/gjerokrsteski/php-to-extjs-types-builder"><img src="https://secure.travis-ci.org/gjerokrsteski/php-to-extjs-types-builder.png?branch=master" alt="Build Status"></a></p>
 
-<h2>Build a textfield</h2>
+<h2>
+<a name="build-a-textfield" class="anchor" href="#build-a-textfield"><span class="octicon octicon-link"></span></a>Build a textfield</h2>
 
-<div class="highlight"><pre><span class="nv">$item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtjsTypes_TextField</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'Ihre E-Mail:'</span><span class="p">);</span>
+<div class="highlight highlight-php"><pre><span class="nv">$item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtjsTypes\TextField</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'Ihre E-Mail:'</span><span class="p">);</span>
 
 <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">setValue</span><span class="p">(</span><span class="s1">'meine-email@web.de'</span><span class="p">)</span>
-             <span class="o">-&gt;</span><span class="na">setVtype</span><span class="p">(</span><span class="k">new</span> <span class="nx">ExtjsTypes_VTypes_Email</span><span class="p">())</span>
+             <span class="o">-&gt;</span><span class="na">setVtype</span><span class="p">(</span><span class="k">new</span> <span class="nx">\ExtjsTypes\VTypes\Email</span><span class="p">())</span>
              <span class="o">-&gt;</span><span class="na">prepare</span><span class="p">();</span>
 
 <span class="nb">print_r</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$data</span><span class="p">));</span>
@@ -58,9 +60,10 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
 }
 </code></pre>
 
-<h2>Build a combobox (selectbox)</h2>
+<h2>
+<a name="build-a-combobox-selectbox" class="anchor" href="#build-a-combobox-selectbox"><span class="octicon octicon-link"></span></a>Build a combobox (selectbox)</h2>
 
-<div class="highlight"><pre><span class="nv">$comboBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_ComboBox</span><span class="p">(</span><span class="s1">'My friends as combo-box'</span><span class="p">);</span>
+<div class="highlight highlight-php"><pre><span class="nv">$comboBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\ComboBox</span><span class="p">(</span><span class="s1">'My friends as combo-box'</span><span class="p">);</span>
 <span class="nv">$comboBox</span><span class="o">-&gt;</span><span class="na">setDisplayField</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
          <span class="o">-&gt;</span><span class="na">setValueField</span><span class="p">(</span><span class="s1">'name-value'</span><span class="p">)</span>
          <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde'</span><span class="p">,</span> <span class="s1">'Miki'</span><span class="p">)</span>
@@ -104,17 +107,18 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
 }
 </code></pre>
 
-<h2>Build a form with textfield and combobox</h2>
+<h2>
+<a name="build-a-form-with-textfield-and-combobox" class="anchor" href="#build-a-form-with-textfield-and-combobox"><span class="octicon octicon-link"></span></a>Build a form with textfield and combobox</h2>
 
-<div class="highlight"><pre><span class="nv">$typeForm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Form</span><span class="p">(</span>
+<div class="highlight highlight-php"><pre><span class="nv">$typeForm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Form</span><span class="p">(</span>
     <span class="s1">'Node deatails'</span><span class="p">,</span>
     <span class="s1">'controller=extjstemplate&amp;act=gettemplates'</span>
 <span class="p">);</span>
 
-<span class="nv">$textFieldName</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_TextField</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Ihr  Name'</span><span class="p">);</span>
-<span class="nv">$textFieldEmail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_TextField</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'Ihre  E-Mail'</span><span class="p">);</span>
+<span class="nv">$textFieldName</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\TextField</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Ihr  Name'</span><span class="p">);</span>
+<span class="nv">$textFieldEmail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\TextField</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="s1">'Ihre  E-Mail'</span><span class="p">);</span>
 
-<span class="nv">$comboBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_ComboBox</span><span class="p">(</span><span class="s1">'My friends as combo-box'</span><span class="p">);</span>
+<span class="nv">$comboBox</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\ComboBox</span><span class="p">(</span><span class="s1">'My friends as combo-box'</span><span class="p">);</span>
 <span class="nv">$comboBox</span><span class="o">-&gt;</span><span class="na">setDisplayField</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
          <span class="o">-&gt;</span><span class="na">setValueField</span><span class="p">(</span><span class="s1">'name-value'</span><span class="p">)</span>
          <span class="o">-&gt;</span><span class="na">addData</span><span class="p">(</span><span class="s1">'freunde'</span><span class="p">,</span> <span class="s1">'Miki'</span><span class="p">)</span>
@@ -172,23 +176,24 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
 }
 </code></pre>
 
-<h2>Build a grid</h2>
+<h2>
+<a name="build-a-grid" class="anchor" href="#build-a-grid"><span class="octicon octicon-link"></span></a>Build a grid</h2>
 
-<div class="highlight"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Fields</span><span class="p">();</span>
+<div class="highlight highlight-php"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Fields</span><span class="p">();</span>
 <span class="nv">$fields</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'vorname'</span><span class="p">)</span>
        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'email'</span><span class="p">);</span>
 
-<span class="nv">$columns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Columns</span><span class="p">();</span>
+<span class="nv">$columns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Columns</span><span class="p">();</span>
 <span class="nv">$columns</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Name'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Vorname'</span><span class="p">,</span> <span class="s1">'vorname'</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'E-Mail'</span><span class="p">,</span> <span class="s1">'email'</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 
-<span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Data</span><span class="p">();</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Data</span><span class="p">();</span>
 <span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'miki@maus.de'</span><span class="p">))</span>
      <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'olie@maus.de'</span><span class="p">));</span>
 
-<span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
+<span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
 <span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">setFields</span><span class="p">(</span><span class="nv">$fields</span><span class="p">)</span>
      <span class="o">-&gt;</span><span class="na">setColumns</span><span class="p">(</span><span class="nv">$columns</span><span class="p">)</span>
      <span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
@@ -234,27 +239,28 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
 }
 </code></pre>
 
-<h2>Build a grid with docked textfield</h2>
+<h2>
+<a name="build-a-grid-with-docked-textfield" class="anchor" href="#build-a-grid-with-docked-textfield"><span class="octicon octicon-link"></span></a>Build a grid with docked textfield</h2>
 
-<div class="highlight"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Fields</span><span class="p">();</span>
+<div class="highlight highlight-php"><pre><span class="nv">$fields</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Fields</span><span class="p">();</span>
 <span class="nv">$fields</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
        <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'vorname'</span><span class="p">);</span>
 
-<span class="nv">$columns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Columns</span><span class="p">();</span>
+<span class="nv">$columns</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Columns</span><span class="p">();</span>
 <span class="nv">$columns</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Name'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">)</span>
         <span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">'Vorname'</span><span class="p">,</span> <span class="s1">'vorname'</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 
-<span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Data</span><span class="p">();</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Data</span><span class="p">();</span>
 <span class="nv">$data</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Miki'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Maus'</span><span class="p">))</span>
      <span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Olie'</span><span class="p">,</span> <span class="s1">'vorname'</span> <span class="o">=&gt;</span> <span class="s1">'Otto'</span><span class="p">));</span>
 
-<span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ExtJsTypes_Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
+<span class="nv">$grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\ExtJsTypes\Grid</span><span class="p">(</span><span class="s1">'My friends'</span><span class="p">);</span>
 <span class="nv">$grid</span><span class="o">-&gt;</span><span class="na">setFields</span><span class="p">(</span><span class="nv">$fields</span><span class="p">)</span>
      <span class="o">-&gt;</span><span class="na">setColumns</span><span class="p">(</span><span class="nv">$columns</span><span class="p">)</span>
      <span class="o">-&gt;</span><span class="na">setData</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
       <span class="o">-&gt;</span><span class="na">dockItem</span><span class="p">(</span>
-        <span class="k">new</span> <span class="nx">ExtJsTypes_ItemsDocker</span><span class="p">(</span>
-          <span class="k">new</span> <span class="nx">ExtJsTypes_Textfield</span><span class="p">(</span><span class="s1">'new-scale'</span><span class="p">,</span> <span class="s1">'Add Scale'</span><span class="p">)</span>
+        <span class="k">new</span> <span class="nx">\ExtJsTypes\ItemsDocker</span><span class="p">(</span>
+          <span class="k">new</span> <span class="nx">\ExtJsTypes\Textfield</span><span class="p">(</span><span class="s1">'new-scale'</span><span class="p">,</span> <span class="s1">'Add Scale'</span><span class="p">)</span>
         <span class="p">)</span>
       <span class="p">);</span>
 
@@ -304,9 +310,15 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
   }
 }
 </code></pre>
-      </section>
-    </div>
+        </section>
 
-    
+        <footer>
+          PHP ExtJS Types Builder is maintained by <a href="https://github.com/gjerokrsteski">gjerokrsteski</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
   </body>
 </html>
