@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\Models;
 
 /**
- * @package ExtJsTypes_Models
+ * @package Models
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Models_TreeChildren extends ExtJsTypes_Models_AbstractModel
+class TreeChildren extends Base
 {
   /**
    * Is it node or node-child.
@@ -53,7 +54,7 @@ class ExtJsTypes_Models_TreeChildren extends ExtJsTypes_Models_AbstractModel
 
   /**
    * One node can have many children-nodes from type=question.
-   * A list of ExtJsTypes_ExtjsTypes_Models_TreeChildren instances.
+   * A list of TreeChildren instances.
    * @var array
    */
   protected $children = array();
@@ -74,14 +75,14 @@ class ExtJsTypes_Models_TreeChildren extends ExtJsTypes_Models_AbstractModel
 
   /**
    * Appends children to the node as nested data.
-   * @param ExtjsTypes_Models_TreeChildren $children
-   * @return ExtJsTypes_Models_TreeChildren
-   * @throws UnexpectedValueException
+   * @param TreeChildren $children
+   * @throws \UnexpectedValueException
+   * @return TreeChildren
    */
-  public function addChildren(ExtjsTypes_Models_TreeChildren $children)
+  public function addChildren(\ExtjsTypes\Models\TreeChildren $children)
   {
     if (true === $this->leaf) {
-      throw new UnexpectedValueException(
+      throw new \UnexpectedValueException(
         'only nodes with property of leaf=false can have child-nodes'
       );
     }
@@ -92,8 +93,8 @@ class ExtJsTypes_Models_TreeChildren extends ExtJsTypes_Models_AbstractModel
 
   /**
    * Returns the properties of the given model-object.
-   * @see ExtJsTypes_ExtjsTypes_Models_AbstractModel::prepare()
-   * @return array A list of ExtJsTypes_ExtjsTypes_Models_TreeChildren properties.
+   * @see \ExtjsTypes\Base::prepare()
+   * @return \ExtJsTypes\Models\TreeChildren[]
    */
   public function prepare()
   {

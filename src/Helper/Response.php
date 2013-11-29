@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\Helper; use ExtJsTypes\Models\Response as Model;
 
 /**
- * @package ExtJsTypes_Helper
+ * @package Helper
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Helper_Response
+class Response
 {
   protected $data           = array();
   protected $messages       = array();
@@ -34,12 +35,12 @@ class ExtJsTypes_Helper_Response
   /**
    * @param bool $success
    * @return string
-   * @throws InvalidArgumentException
+   * @throws \InvalidArgumentException
    */
   public function sendJson($success = true)
   {
     if ($success !== (boolean)$success) {
-      throw new InvalidArgumentException(
+      throw new \InvalidArgumentException(
         'param success must be a boolean!'
       );
     }
@@ -48,7 +49,7 @@ class ExtJsTypes_Helper_Response
       return json_encode($this->data);
     }
 
-    $model = new ExtJsTypes_Models_Response(
+    $model = new Model(
       $this->data, $this->messages, $this->errors, $success
     );
 
@@ -77,7 +78,7 @@ class ExtJsTypes_Helper_Response
   /**
    * The data to send.
    * @param array $data
-   * @return ExtJsTypes_Helper_Response
+   * @return Response
    */
   public function setData(array $data)
   {
@@ -88,7 +89,7 @@ class ExtJsTypes_Helper_Response
   /**
    * The positive messages to send.
    * @param array $messages
-   * @return ExtJsTypes_Helper_Response
+   * @return Response
    */
   public function setMessages(array $messages)
   {
@@ -99,7 +100,7 @@ class ExtJsTypes_Helper_Response
   /**
    * The errors messages to send.
    * @param array $errors
-   * @return ExtJsTypes_Helper_Response
+   * @return Response
    */
   public function setErrors(array $errors)
   {
@@ -110,7 +111,7 @@ class ExtJsTypes_Helper_Response
   /**
    * Decides if the data-decoration should be ignored and the
    * data should be send in raw format.
-   * @return ExtJsTypes_Helper_Response
+   * @return Response
    */
   public function ignoreDataDecoration()
   {

@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Grid extends ExtJsTypes_TypeAbstract
+class Grid extends Base
 {
   /**
    * The title text to be used to display in the panel header.
@@ -39,7 +40,7 @@ class ExtJsTypes_Grid extends ExtJsTypes_TypeAbstract
   protected $fields;
 
   /**
-   * @var ExtJsTypes_Columns
+   * @var Columns
    */
   protected $columns;
 
@@ -84,7 +85,7 @@ class ExtJsTypes_Grid extends ExtJsTypes_TypeAbstract
 
   /**
    * @param string $title
-   * @return ExtJsTypes_Grid
+   * @return Grid
    */
   public function setTitle($title)
   {
@@ -93,30 +94,30 @@ class ExtJsTypes_Grid extends ExtJsTypes_TypeAbstract
   }
 
   /**
-   * @param ExtJsTypes_Columns $columns
-   * @return ExtJsTypes_Grid
+   * @param Columns $columns
+   * @return Grid
    */
-  public function setColumns(ExtJsTypes_Columns $columns)
+  public function setColumns(Columns $columns)
   {
     $this->columns = $columns->prepare();
     return $this;
   }
 
   /**
-   * @param ExtJsTypes_Data $data
-   * @return ExtJsTypes_Grid
+   * @param Data $data
+   * @return Grid
    */
-  public function setData(ExtJsTypes_Data $data)
+  public function setData(Data $data)
   {
     $this->data = $data->prepare();
     return $this;
   }
 
   /**
-   * @param ExtJsTypes_Fields $fields
-   * @return ExtJsTypes_Grid
+   * @param Fields $fields
+   * @return Grid
    */
-  public function setFields(ExtJsTypes_Fields $fields)
+  public function setFields(Fields $fields)
   {
     $this->fields = $fields->prepare();
     return $this;
@@ -127,10 +128,10 @@ class ExtJsTypes_Grid extends ExtJsTypes_TypeAbstract
    * Note that this only has effect if this item is part of the dockedItems
    * collection of a parent that has a DockLayout
    * (note that any Panel has a DockLayout by default)
-   * @param ExtJsTypes_ItemsDocker $item
-   * @return ExtJsTypes_Grid
+   * @param ItemsDocker $item
+   * @return Grid
    */
-  public function dockItem(ExtJsTypes_ItemsDocker $item)
+  public function dockItem(ItemsDocker $item)
   {
     $this->dockedItems[] = $item->prepare();
     return $this;

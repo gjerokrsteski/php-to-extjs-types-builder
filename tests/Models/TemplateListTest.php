@@ -6,7 +6,7 @@ class ModelTemplateListTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_Models_TemplateList(1, 'hoho', '1.8');
+    new \ExtJsTypes\Models\TemplateList(1, 'hoho', '1.8');
   }
 
   /**
@@ -14,7 +14,7 @@ class ModelTemplateListTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingModelData()
   {
-    $model = new ExtJsTypes_Models_TemplateList(123, 'TextMatrix', '2.8');
+    $model = new \ExtJsTypes\Models\TemplateList(123, 'TextMatrix', '2.8');
 
     $res = $model->prepare();
 

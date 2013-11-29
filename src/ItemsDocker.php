@@ -19,33 +19,34 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_ItemsDocker extends ExtJsTypes_TypeAbstract
+class ItemsDocker extends Base
 {
   /**
-   * @var ExtjsTypes_TypeAbstract
+   * @var \ExtJsTypes\Base
    */
   protected $dockedItem;
 
-  public function __construct(ExtjsTypes_TypeInterface $item)
+  public function __construct(\ExtJsTypes\Preparable $item)
   {
     $this->dockedItem = $item;
   }
 
   public function prepare()
   {
-    if ($this->dockedItem instanceof ExtJsTypes_Textfield) {
+    if ($this->dockedItem instanceof Textfield) {
       return array(
         'xtype'       => $this->dockedItem->getXtype(),
         'buttonLabel' => $this->dockedItem->getFieldLabel()
       );
     }
 
-    if ($this->dockedItem instanceof ExtJsTypes_ComboBox) {
+    if ($this->dockedItem instanceof ComboBox) {
       return array(
         'xtype'             => $this->dockedItem->getXtype(),
         'buttonLabel'       => $this->dockedItem->getFieldLabel(),

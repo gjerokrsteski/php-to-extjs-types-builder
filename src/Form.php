@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Form extends ExtJsTypes_TypeAbstract
+class Form extends Base
 {
   /**
    * The title text to be used to display in the panel header.
@@ -65,7 +66,7 @@ class ExtJsTypes_Form extends ExtJsTypes_TypeAbstract
 
   /**
    * @param string $title
-   * @return ExtJsTypes_Form
+   * @return Form
    */
   public function setTitle($title)
   {
@@ -75,7 +76,7 @@ class ExtJsTypes_Form extends ExtJsTypes_TypeAbstract
 
   /**
    * @param string $url
-   * @return ExtJsTypes_Form
+   * @return Form
    */
   public function setUrl($url)
   {

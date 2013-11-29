@@ -19,18 +19,19 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\Models;
 
 /**
- * @package ExtJsTypes_Models
+ * @package Models
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-abstract class ExtJsTypes_Models_AbstractModel implements ExtJsTypes_Models_InterfaceModel
+abstract class Base
 {
   /**
    * Returns the properties of the given model-object.
    * For another properties output format, please overide this method.
-   * @see ExtJsTypes_ExtjsTypes_Models_InterfaceModel::prepare()
-   * @return array A list of ExtJsTypes_ExtjsTypes_Models_AbstractModel properties.
+   * @see \ExtjsTypes\InterfaceModel::prepare()
+   * @return \ExtJsTypes\Base[]
    */
   public function prepare()
   {

@@ -6,7 +6,7 @@ class ColumnsTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_Columns();
+    new \ExtJsTypes\Columns();
   }
 
   /**
@@ -14,7 +14,7 @@ class ColumnsTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingOfItemsStructureData()
   {
-    $columns = new ExtJsTypes_Columns();
+    $columns = new \ExtJsTypes\Columns();
 
     $columns->add('Ihr Name', 'name')
            ->add('Ihr Vorname', 'vorname')

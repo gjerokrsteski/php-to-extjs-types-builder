@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\Models;
 
 /**
- * @package ExtJsTypes_Models
+ * @package Models
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Models_TemplateList extends ExtJsTypes_Models_AbstractModel
+class TemplateList extends Base
 {
   protected $id      = '';
   protected $label   = '';

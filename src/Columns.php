@@ -19,6 +19,7 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * This class specifies the definition for a column inside a Ext.grid.Panel.
@@ -28,7 +29,7 @@
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Columns extends ExtJsTypes_TypeAbstract
+class Columns extends Base
 {
   /**
    * List of columns for the grid.
@@ -46,7 +47,7 @@ class ExtJsTypes_Columns extends ExtJsTypes_TypeAbstract
    * @param string  $header    Sets the header text for the column.
    * @param string  $dataIndex The field in the underlying Ext.data.Store to use as the value for the column.
    * @param boolean $flex      A column can either be given an explicit width value or a flex configuration.
-   * @return ExtJsTypes_Columns
+   * @return Columns
    */
   public function add($header, $dataIndex, $flex = false)
   {

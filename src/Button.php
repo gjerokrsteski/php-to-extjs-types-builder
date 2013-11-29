@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Button extends ExtJsTypes_TypeAbstract
+class Button extends Base
 {
   /**
    * The size of the Button.

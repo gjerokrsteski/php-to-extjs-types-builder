@@ -19,18 +19,27 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\VTypes;
 
 /**
- * A interface for the Ext.form.field.VTypes
+ * Abstract class for the field validation object-summary.
  *
- * @package ExtJsTypes_VTypes
+ * @package VTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-interface ExtJsTypes_VTypes_TypeInterface
+abstract class Base
 {
+  /**
+   * @var string
+   */
+  protected $type;
+
   /**
    * VTypes can be applied to a Text Field using the vtype configuration.
    * @return string The validation type.
    */
-  public function getType();
+  public function getType()
+  {
+    return $this->type;
+  }
 }

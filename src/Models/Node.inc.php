@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\Models;
 
 /**
- * @package ExtJsTypes_Models
+ * @package Models
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Models_Node extends ExtJsTypes_Models_AbstractModel
+class Node extends Base
 {
   /**
    * Set to true or false to show a checkbox alongside this node.
@@ -73,12 +74,12 @@ class ExtJsTypes_Models_Node extends ExtJsTypes_Models_AbstractModel
   protected $type = 'question';
 
   /**
-   * @param string  $id        The unique node-id.
+   * @param string  $id       The unique node-id.
    * @param integer $index    The position of the node inside its parent.
    * @param string  $parentId ID of parent node.
-   * @param string  $text      The text for to show on node label.
+   * @param string  $text     The text for to show on node label.
    * @param integer $depth    The number of parents this node has.
-   * @param string  $type      Is it a node|question|root.
+   * @param string  $type     Is it a node|question|root.
    */
   public function __construct($id, $index, $parentId, $text, $depth, $type = 'question')
   {

@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
+abstract class Base implements Preparable
 {
   /**
    * The xtype configuration option can be used
@@ -79,7 +80,7 @@ abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
 
   /**
    * @param string $xtype
-   * @return ExtJsTypes_TypeAbstract
+   * @return Base
    */
   public function setXtype($xtype)
   {
@@ -89,7 +90,7 @@ abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
 
   /**
    * @param string $name
-   * @return ExtJsTypes_TypeAbstract
+   * @return Base
    */
   public function setName($name)
   {
@@ -99,7 +100,7 @@ abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
 
   /**
    * @param string $value
-   * @return ExtJsTypes_TypeAbstract
+   * @return Base
    */
   public function setValue($value)
   {
@@ -109,7 +110,7 @@ abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
 
   /**
    * @param string $fieldLabel
-   * @return ExtJsTypes_TypeAbstract
+   * @return Base
    */
   public function setFieldLabel($fieldLabel)
   {
@@ -119,7 +120,7 @@ abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
 
   /**
    * @param boolean $allowBlank
-   * @return ExtJsTypes_TypeAbstract
+   * @return Base
    */
   public function setAllowBlank($allowBlank)
   {
@@ -129,7 +130,7 @@ abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
 
   /**
    * @param string $cls
-   * @return ExtJsTypes_TypeAbstract
+   * @return Base
    */
   public function setCls($cls)
   {
@@ -187,17 +188,19 @@ abstract class ExtJsTypes_TypeAbstract implements ExtJsTypes_TypeInterface
 
   /**
    * Appends an form-item.
-   * @param ExtJsTypes_TypeInterface $item
-   * @return ExtJsTypes_TypeAbstract
+   *
+   * @param Preparable $item
+   *
+   * @return $this
    */
-  public function addItem(ExtJsTypes_TypeInterface $item)
+  public function addItem(Preparable $item)
   {
     $this->items[] = $item->prepare();
     return $this;
   }
 
   /**
-   * @return array A list of ExtJsTypes_TypeInterface items.
+   * @return Preparable[]
    */
   public function getItems()
   {

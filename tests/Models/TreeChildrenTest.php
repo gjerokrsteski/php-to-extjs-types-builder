@@ -6,7 +6,7 @@ class ModelsTreeChildrenTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_Models_TreeChildren(1, 'New node 123');
+    new \ExtJsTypes\Models\TreeChildren(1, 'New node 123');
   }
 
   /**
@@ -14,14 +14,14 @@ class ModelsTreeChildrenTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingNestedData()
   {
-    $node = new ExtJsTypes_Models_TreeChildren(1, 'New node 1');
+    $node = new \ExtJsTypes\Models\TreeChildren(1, 'New node 1');
 
     $node
       ->addChildren(
-        new ExtJsTypes_Models_TreeChildren(1, 'New question 1', 'question', true)
+        new \ExtJsTypes\Models\TreeChildren(1, 'New question 1', 'question', true)
       )
       ->addChildren(
-        new ExtJsTypes_Models_TreeChildren(2, 'New question 2', 'question', true)
+        new \ExtJsTypes\Models\TreeChildren(2, 'New question 2', 'question', true)
       );
 
     $res = $node->prepare();
@@ -40,11 +40,11 @@ class ModelsTreeChildrenTest extends PHPUnit_Framework_TestCase
    */
   public function testTrowingExceptionIfChildnodesOfTypeLeafTriesToAddSubnodes()
   {
-    $nodeTypeLeaf = new ExtJsTypes_Models_TreeChildren(1, 'New node 1', 'question', true);
+    $nodeTypeLeaf = new \ExtJsTypes\Models\TreeChildren(1, 'New node 1', 'question', true);
 
     $nodeTypeLeaf
       ->addChildren(
-        new ExtJsTypes_Models_TreeChildren(1, 'New question 1', 'question', true)
+        new \ExtJsTypes\Models\TreeChildren(1, 'New question 1', 'question', true)
       );
   }
 }

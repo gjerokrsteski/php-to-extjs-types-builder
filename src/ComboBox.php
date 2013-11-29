@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_ComboBox extends ExtJsTypes_TypeAbstract
+class ComboBox extends Base
 {
   /**
    * The underlying data field name to bind to this ComboBox.
@@ -80,7 +81,7 @@ class ExtJsTypes_ComboBox extends ExtJsTypes_TypeAbstract
   /**
    * Set witch of the fields should be displayed.
    * @param string $displayField
-   * @return ExtJsTypes_ComboBox
+   * @return ComboBox
    */
   public function setDisplayField($displayField)
   {
@@ -99,7 +100,7 @@ class ExtJsTypes_ComboBox extends ExtJsTypes_TypeAbstract
   /**
    * Set witch of the fields should be the value of the combobox.
    * @param string $valueField
-   * @return ExtJsTypes_ComboBox
+   * @return ComboBox
    */
   public function setValueField($valueField)
   {
@@ -118,7 +119,7 @@ class ExtJsTypes_ComboBox extends ExtJsTypes_TypeAbstract
   /**
    * @param string $field The name of the field.
    * @param string $value The value of the field.
-   * @return ExtJsTypes_ComboBox
+   * @return ComboBox
    */
   public function addData($field, $value)
   {

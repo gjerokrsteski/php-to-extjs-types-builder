@@ -6,7 +6,7 @@ class ModelQuestionTemplatesTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_Models_QuestionTemplate(
+    new \ExtJsTypes\Models\QuestionTemplate(
       'global', 'Globaltemplates'
     );
 
@@ -17,16 +17,16 @@ class ModelQuestionTemplatesTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingModelData()
   {
-    $questionTemplateModel = new ExtJsTypes_Models_QuestionTemplate(
+    $questionTemplateModel = new \ExtJsTypes\Models\QuestionTemplate(
       'global', 'Globaltemplates'
     );
 
     $questionTemplateModel
     ->addTemplate(
-      new ExtJsTypes_Models_TemplateList(123, 'TextMatrix', '2.8')
+      new \ExtJsTypes\Models\TemplateList(123, 'TextMatrix', '2.8')
     )
     ->addTemplate(
-      new ExtJsTypes_Models_TemplateList(456, 'TextMatrix', '2.8')
+      new \ExtJsTypes\Models\TemplateList(456, 'TextMatrix', '2.8')
     );
 
     $res = $questionTemplateModel->prepare();

@@ -6,7 +6,7 @@ class ComboBoxTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_ComboBox('My friends');
+    new \ExtJsTypes\ComboBox('My friends');
   }
 
   /**
@@ -14,7 +14,7 @@ class ComboBoxTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingOfItemsStructureData()
   {
-    $comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
+    $comboBox = new \ExtJsTypes\ComboBox('My friends as combo-box');
     $comboBox->setDisplayField('name')
              ->setValueField('name-value')
              ->addData('freunde', 'Miki')

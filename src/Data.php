@@ -19,17 +19,18 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Data extends ExtJsTypes_Fields
+class Data extends Fields
 {
   /**
    * Appends a single field.
    * @param array $field The data for the fields.
-   * @return ExtJsTypes_Fields
+   * @return Data
    */
   public function put(array $field)
   {

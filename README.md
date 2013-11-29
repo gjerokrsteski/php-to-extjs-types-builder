@@ -10,10 +10,10 @@ with your ExtJS-GUI. Due an fluent interface you can easily build and prepare th
 Build a textfield
 -----------------
 ```php
-$item = new ExtjsTypes_TextField('email', 'Ihre E-Mail:');
+$item = new \ExtjsTypes\TextField('email', 'Ihre E-Mail:');
 
 $data = $item->setValue('meine-email@web.de')
-             ->setVtype(new ExtjsTypes_VTypes_Email())
+             ->setVtype(new \ExtjsTypes\VTypes\Email())
              ->prepare();
 
 print_r(json_encode($data));
@@ -34,7 +34,7 @@ Output will be:
 Build a combobox (selectbox)
 ----------------------------
 ```php
-$comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
+$comboBox = new \ExtJsTypes\ComboBox('My friends as combo-box');
 $comboBox->setDisplayField('name')
          ->setValueField('name-value')
          ->addData('freunde', 'Miki')
@@ -81,15 +81,15 @@ Output will be:
 Build a form with textfield and combobox
 ----------------------------------------
 ```php
-$typeForm = new ExtJsTypes_Form(
+$typeForm = new \ExtJsTypes\Form(
 	'Node deatails',
 	'controller=extjstemplate&act=gettemplates'
 );
 
-$textFieldName = new ExtJsTypes_TextField('name', 'Ihr  Name');
-$textFieldEmail = new ExtJsTypes_TextField('email', 'Ihre  E-Mail');
+$textFieldName = new \ExtJsTypes\TextField('name', 'Ihr  Name');
+$textFieldEmail = new \ExtJsTypes\TextField('email', 'Ihre  E-Mail');
 
-$comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
+$comboBox = new \ExtJsTypes\ComboBox('My friends as combo-box');
 $comboBox->setDisplayField('name')
          ->setValueField('name-value')
          ->addData('freunde', 'Miki')
@@ -150,21 +150,21 @@ Output will be:
 Build a grid
 ------------
 ```php
-$fields = new ExtJsTypes_Fields();
+$fields = new \ExtJsTypes\Fields();
 $fields->add('name')
        ->add('vorname')
        ->add('email');
 
-$columns = new ExtJsTypes_Columns();
+$columns = new \ExtJsTypes\Columns();
 $columns->add('Name', 'name')
         ->add('Vorname', 'vorname')
         ->add('E-Mail', 'email', true);
 
-$data = new ExtJsTypes_Data();
+$data = new \ExtJsTypes\Data();
 $data->put(array('name' => 'Miki', 'email' => 'miki@maus.de'))
      ->put(array('name' => 'Olie', 'email' => 'olie@maus.de'));
 
-$grid = new ExtJsTypes_Grid('My friends');
+$grid = new \ExtJsTypes\Grid('My friends');
 $grid->setFields($fields)
      ->setColumns($columns)
      ->setData($data);
@@ -213,25 +213,25 @@ Output will be:
 Build a grid with docked textfield
 ----------------------------------
 ```php
-$fields = new ExtJsTypes_Fields();
+$fields = new \ExtJsTypes\Fields();
 $fields->add('name')
        ->add('vorname');
 
-$columns = new ExtJsTypes_Columns();
+$columns = new \ExtJsTypes\Columns();
 $columns->add('Name', 'name')
         ->add('Vorname', 'vorname', true);
 
-$data = new ExtJsTypes_Data();
+$data = new \ExtJsTypes\Data();
 $data->put(array('name' => 'Miki', 'vorname' => 'Maus'))
      ->put(array('name' => 'Olie', 'vorname' => 'Otto'));
 
-$grid = new ExtJsTypes_Grid('My friends');
+$grid = new \ExtJsTypes\Grid('My friends');
 $grid->setFields($fields)
      ->setColumns($columns)
      ->setData($data)
       ->dockItem(
-        new ExtJsTypes_ItemsDocker(
-          new ExtJsTypes_Textfield('new-scale', 'Add Scale')
+        new \ExtJsTypes\ItemsDocker(
+          new \ExtJsTypes\Textfield('new-scale', 'Add Scale')
         )
       );
 

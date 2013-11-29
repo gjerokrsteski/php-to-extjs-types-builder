@@ -19,14 +19,15 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\VTypes;
 
 /**
  * Used to validate alphanumeric values.
  *
- * @package ExtJsTypes_VTypes
+ * @package VTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_VTypes_Alphanum extends ExtJsTypes_VTypes_TypeAbstract
+class Alphanum extends Base
 {
   protected $type = 'alphanum';
 }

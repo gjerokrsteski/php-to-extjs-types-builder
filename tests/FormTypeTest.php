@@ -6,7 +6,7 @@ class FormTypeTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_Form(
+    new \ExtJsTypes\Form(
     	'Node details',
     	'controller=extjstemplate&act=gettemplates'
     );
@@ -17,15 +17,15 @@ class FormTypeTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingFormMethod()
   {
-    $typeForm = new ExtJsTypes_Form(
+    $typeForm = new \ExtJsTypes\Form(
     	'Node details',
     	'controller=extjstemplate&act=gettemplates'
     );
 
-    $textFildName = new ExtJsTypes_TextField('name', 'Ihr  Name');
-    $textFildEmail = new ExtJsTypes_TextField('email', 'Ihre  E-Mail');
+    $textFildName = new \ExtJsTypes\TextField('name', 'Ihr  Name');
+    $textFildEmail = new \ExtJsTypes\TextField('email', 'Ihre  E-Mail');
 
-    $comboBox = new ExtJsTypes_ComboBox('My friends as combo-box');
+    $comboBox = new \ExtJsTypes\ComboBox('My friends as combo-box');
     $comboBox->setDisplayField('name')
              ->setValueField('name-value')
              ->addData('freunde', 'Miki')

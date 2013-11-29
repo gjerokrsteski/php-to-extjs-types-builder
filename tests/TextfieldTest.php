@@ -6,7 +6,7 @@ class TextfieldTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_TextField('email', 'Ihre E-Mail:');
+    new \ExtJsTypes\TextField('email', 'Ihre E-Mail:');
   }
 
   /**
@@ -14,7 +14,7 @@ class TextfieldTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingOfItemsStructureData()
   {
-    $item = new ExtJsTypes_TextField('email', 'Ihre E-Mail:');
+    $item = new \ExtJsTypes\TextField('email', 'Ihre E-Mail:');
     $data = $item->prepare();
 
     $this->assertArrayHasKey('xtype', $data);
@@ -26,9 +26,9 @@ class TextfieldTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingWithValueAndValidation()
   {
-    $item = new ExtJsTypes_TextField('email', 'Ihre E-Mail:');
+    $item = new \ExtJsTypes\TextField('email', 'Ihre E-Mail:');
     $data = $item->setValue('meine-email@web.de')
-                 ->setVtype(new ExtJsTypes_VTypes_Alpha())
+                 ->setVtype(new \ExtJsTypes\VTypes\Alpha())
                  ->prepare();
 
     $this->assertArrayHasKey('xtype', $data);

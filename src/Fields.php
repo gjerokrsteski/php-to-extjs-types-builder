@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Fields extends ExtJsTypes_TypeAbstract
+class Fields extends Base
 {
   /**
    * List of fields for the grid.
@@ -40,7 +41,7 @@ class ExtJsTypes_Fields extends ExtJsTypes_TypeAbstract
   /**
    * Appends a single field.
    * @param string $fieldName The name of the field.
-   * @return ExtJsTypes_Fields
+   * @return Fields
    */
   public function add($fieldName)
   {

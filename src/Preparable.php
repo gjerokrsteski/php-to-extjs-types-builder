@@ -19,26 +19,29 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
- * Abstract class for the field validation object-summary.
- *
- * @package ExtJsTypes_VTypes
+ * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-abstract class ExtJsTypes_VTypes_TypeAbstract implements ExtJsTypes_VTypes_TypeInterface
+interface Preparable
 {
   /**
-   * @var string
+   * The xtype configuration option must be used
+   * to optimize Component creation and rendering.
+   * @param string $xtype
    */
-  protected $type;
+  public function setXtype($xtype);
 
   /**
-   * VTypes can be applied to a Text Field using the vtype configuration.
-   * @return string The validation type.
+   * @return string
    */
-  public function getType()
-  {
-    return $this->type;
-  }
+  public function getXtype();
+
+  /**
+   * Prepare the type-structure.
+   * @return array
+   */
+  public function prepare();
 }

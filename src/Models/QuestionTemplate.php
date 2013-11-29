@@ -19,12 +19,13 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\Models;
 
 /**
- * @package ExtJsTypes_Models
+ * @package Models
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_Models_QuestionTemplate extends ExtJsTypes_Models_AbstractModel
+class QuestionTemplate extends Base
 {
   protected $type  = '';
   protected $label = '';
@@ -46,10 +47,11 @@ class ExtJsTypes_Models_QuestionTemplate extends ExtJsTypes_Models_AbstractModel
   }
 
   /**
-   * @param ExtJsTypes_Models_TemplateList $templateList
-   * @return ExtJsTypes_Models_QuestionTemplate
+   * @param TemplateList $templateList
+   *
+   * @return $this
    */
-  public function addTemplate(ExtJsTypes_Models_TemplateList $templateList)
+  public function addTemplate(\ExtJsTypes\Models\TemplateList $templateList)
   {
     $this->templates[] = $templateList->prepare();
     return $this;

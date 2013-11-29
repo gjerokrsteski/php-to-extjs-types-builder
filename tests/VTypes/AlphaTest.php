@@ -6,6 +6,6 @@ class AlphaTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_VTypes_Alpha();
+    new \ExtJsTypes\VTypes\Alpha();
   }
 }

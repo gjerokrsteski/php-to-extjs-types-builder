@@ -19,18 +19,19 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes;
 
 /**
  * @package ExtJsTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_TextField extends ExtJsTypes_TypeAbstract
+class TextField extends Base
 {
   /**
    * The from validation.
    * With the default configuration, form fields are validated
    * on-the-fly while the user edits their values.
-   * @var ExtJsTypes_VTypes_TypeInterface
+   * @var \ExtJsTypes\Preparable
    */
   protected $vtype;
 
@@ -60,7 +61,7 @@ class ExtJsTypes_TextField extends ExtJsTypes_TypeAbstract
       $structure['value'] = $this->getValue();
     }
 
-    if ($this->vtype instanceof ExtJsTypes_VTypes_TypeInterface) {
+    if ($this->vtype instanceof VTypes\Base) {
       $structure['vtype'] = $this->vtype->getType();
     }
 
@@ -69,10 +70,10 @@ class ExtJsTypes_TextField extends ExtJsTypes_TypeAbstract
 
   /**
    * Set the validation object.
-   * @param ExtJsTypes_VTypes_TypeInterface $vtype
-   * @return ExtJsTypes_TextField
+   * @param VTypes\Base $vtype
+   * @return $this
    */
-  public function setVtype(ExtJsTypes_VTypes_TypeInterface $vtype)
+  public function setVtype(VTypes\Base $vtype)
   {
     $this->vtype = $vtype;
     return $this;

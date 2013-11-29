@@ -6,7 +6,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
    */
   public function CreatingNewInstance()
   {
-    new ExtJsTypes_Models_Response(
+    new \ExtJsTypes\Models\Response(
       array(), array(), array(), false
     );
   }
@@ -16,7 +16,7 @@ class ResponseTest extends PHPUnit_Framework_TestCase
    */
   public function PreparingOfDataForBooleanTypes()
   {
-    $model = new ExtJsTypes_Models_Response(
+    $model = new \ExtJsTypes\Models\Response(
       array(), array(), array(), false
     );
 

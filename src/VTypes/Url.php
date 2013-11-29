@@ -19,14 +19,15 @@
  * @copyright Copyright (c) 2010-2011 Gjero Krsteski (http://krsteski.de)
  * @license   http://krsteski.de/new-bsd-license New BSD License
  */
+namespace ExtJsTypes\VTypes;
 
 /**
  * Used to validate URLs values.
  *
- * @package ExtJsTypes_VTypes
+ * @package VTypes
  * @author Gjero Krsteski <gjero@krsteski.de>
  */
-class ExtJsTypes_VTypes_Url extends ExtJsTypes_VTypes_TypeAbstract
+class Url extends Base
 {
   protected $type = 'url';
 }
